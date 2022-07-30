@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="on()">nih</button>
+</body>
+<script>
+//   var Queue = {
+//             queue:[],
+//             push: function(fun) {
+// 				queue.push(fun);
+//             },
+// 			run:function(){
+// 				for(let i=0;i<queue.length;i++){
+// 					let now=queue.shift();
+// 					now();
+// 				}
+// 			}
+//         }
+
+// function Queue(){}
+// Queue.data=[]
+// Queue.push=function(fn){
+// 	this.data.push(fn)
+// 	return this;
+// }
+// Queue.run=async function(){
+//  for(let i=0;i<this.data.length;i++){
+// 	 await this.data[i]()
+//  }
+// }
+// Queue.push(function () {
+//      return new Promise((resolve) => {
+//        setTimeout(() => {
+//          console.log('1')
+//          resolve()
+//        }, 1000)
+//      })
+//    }).push(function () {
+//      console.log('2');
+//    }).push(function () {
+//      return new Promise((resolve) => {
+//        setTimeout(() => {
+//          console.log('3')
+//          resolve()
+//        }, 500)
+//      })
+//    }).run()
+// let que=[]
+// for(let i=0;i<2;i++){
+// 	que[i]
+// }
+// function one(){
+// 	console.log(one)
+
+// }
+// function two(){
+// 	console.log(two)
+	
+// }
+// function on(){
+// 	for(let i=0;i<que.length;i++){
+// 		let now=que[i]
+// 		console.log(now)
+// 		now();
+// 	}
+// }
+// function promise1 () {
+//   let p = new Promise((resolve) => {
+//     console.log('promise1');
+//     resolve('1')
+//   })
+//   return p;
+// }
+// function promise2 () {
+//   return new Promise((resolve, reject) => {
+//     reject('error')
+//   })
+// }
+// promise1()
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err))
+//   .finally(() => console.log('finally1'))
+
+// promise2()
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err))
+//   .finally(() => console.log('finally2'))
+// function runAsync (x) {
+// 	const p = new Promise(r => setTimeout(() => r(x, console.log(x)), 1000))
+// 	return p
+//   }
+//   Promise.race([runAsync(1), runAsync(2), runAsync(3)])
+// 	.then(res => console.log('result: ', res))
+// 	.catch(err => console.log(err))
+
+// function fun(fn){
+//   return function(){
+//     let timeout=null;
+//       if(timeout){
+//         clearTimeout(timeout);
+//       }else{
+//         timeout=setTimeout(()=>{
+//          fn.call(this);
+//         },1000)
+//       }
+//   }
+  
+// }
+
+
+
+// function fun(arr,index=0){
+//   let res=[];
+//   for(let i=0;i<arr.length;i++){
+   
+//     if(Array.isArray(arr[i])){
+//       res=res.concat(fun(arr[i],index));
+//     }else{
+//       if(arr[i].key==undefined){
+//           arr[i].key=index++;
+//           console.log(index);
+//     }
+//       res.push(arr[i]);
+//     }
+//   }
+//   console.log(res);
+//   return res;
+// }
+// let myarr=[
+//     {key: 'a', props: 'a'},
+//     {props: 'b'},
+//     [
+//         {key: 'b', props: 'c'},
+//         [
+//             {props: 'd'}
+//         ]
+//     ],
+//     {props: 'e'}
+// ];
+// fun(myarr);
+     
+// setTimeout(()=>{
+//   console.log('1')
+// },20)
+// for(let i=0;i<90000000;i++){}
+// setTimeout(()=>{
+//   console.log('2')
+// },0)
+
+// let person={};
+// Object.defineProperty(person,'name',{
+//      writable:false,
+// 	 value:'mimi'
+// });
+// console.log(person.name);//mimi
+// person.name='Fish';
+// console.log(person.name);//mimi
+
+//   let book={
+// 	  year_:2017,//私有成员
+// 	  edition:1//公共成员
+//   }
+//   Object.defineProperty(book,"year",{
+// 	  get(){
+// 		  return this.year_;
+// 	  },
+// 	  set(newVal){
+// 		  this.year_=newVal;
+// 		  this.edition+=newVal-2017;
+// 	  }
+//   })
+//   book.year=2018;
+//   console.log(book.edition);//2
+// let des=Object.getOwnPropertyDescriptors(book);
+// console.log(des)
+
+
+
+
+
+// result=Object.assign(dest,{a:'foo'},{b:'bar'});
+// console.log(dest,result)
+
+// const namekey='name';
+// let person={
+// 	[namekey]:'mimi'
+// };
+
+// console.log(person)
+// function createPerson(name,age){
+// 	let o=new Object();
+// 	o.name=name;
+// 	o.age=age;
+// 	o.sayName=function(){
+// 		console.log(this.name);
+// 	};
+// 	return o;
+// }
+// let person1=createPerson('jack',23)
+// let person2=createPerson('alice',25)
+
+// function Person(name,age){
+// 	this.name=name;
+// 	this.age=age;
+// 	this.sayName=sayName;
+// }
+// function sayName(){
+// 	console.log(this.name)
+// }
+// let person1=new Person('jack',23)
+// let person2=new Person('alice',25)
+// person1.sayName();
+// person2.sayName()
+// console.log(person1 instanceof Object);
+// console.log(person1 instanceof Person);
+// console.log(person2 instanceof Object);
+// console.log(person2 instanceof Person);
+// console.log(Person.prototype.constructor===Person)
+// console.log(Person.prototype.__proto__===Object.prototype);
+// console.log(Person.prototype.__proto__.__proto__===null);
+// console.log(person1.prototype===person2.prototype)
+// console.log(Object.getPrototypeOf(person1)===Person.prototype);
+// let Person=function(){};
+// Person.prototype.name='mimi';
+// Person.prototype.age=26;
+// Person.prototype.sayMName=function(){
+// 	console.log(this.name)
+// }
+// let person1=new Person();
+// let person2=new Person();
+// person1.name='jack'
+// // console.log('name' in person1);
+// // console.log(person1.hasOwnProperty('name'))
+// // console.log('name' in person2);
+// // console.log(person2.hasOwnProperty('name'))
+// console.log('name' in person2 && !person2.hasOwnProperty('name'))
+// function runAsync (x) {
+//   const p = new Promise(r => setTimeout(() => r(x, console.log(x)), 1000*x))
+//   return p;
+// }
+// function runReject(x) {
+//   const p = new Promise((res, rej) => setTimeout(() => rej( `${x}`, console.log(x)), 1000 * x) );
+//   return p;
+// }
+// let arr=[runAsync(3),runAsync(2),runReject(1)]
+// function promiseRace(promises) {
+//             return new Promise(function (resolve, reject) {
+//                 promises.forEach((p,i) =>
+//                     Promise.resolve(p).then(data => {
+// 						console.log('resolve:'+i)
+//                         resolve(data)
+//                     }, err => {
+// 					console.log('rejected:'+i)
+//                         reject(err)
+//                     })
+//                 )
+//             })
+//         }
+// promiseRace(arr)
+// function mi(r){
+// 	return new Promise((res,rej)=>setTimeout(()=>res(console.log(r)),1000))
+
+// }
+// function miq(r){
+// 	let a=new Promise((res,rej)=>setTimeout(()=>res(console.log(r)),1000))
+// 	return Promise.resolve(a);
+// }
+// mi('success');
+// miq('rejected');
+
+
+// function Foo() {
+//     Foo.a = function() {
+//         console.log(1)
+//     }
+//     this.a = function() {
+//         console.log(2)
+//     }
+// }
+// Foo.prototype.a = function() {
+//     console.log(3)
+// }
+// Foo.a = function() {
+//     console.log(4)
+// }
+// Foo.a();
+// // let obj = new Foo();
+// // obj.a();
+//  Foo.a();
+
+
+// async function async1() {
+//     console.log('async1 start');
+//     await async2();
+//     console.log('async1 end');
+// }
+// async function async2() {
+//     console.log('async2');
+// }
+// console.log('script start');
+// setTimeout(function() {
+//     console.log('setTimeout');
+// }, 0)
+// async1();
+// new Promise(function(resolve) {
+//     console.log('promise1');
+//     resolve();
+// }).then(function() {
+//     console.log('promise2');
+// });
+// console.log('script end');
+
+
+// function add(){
+//     //let args = arguments;//用于获取第一个括号里的参数
+//     // 因为arguments是类数组结构，因此上述代码还需要进行改进，下面这行才是正确的
+//     let args = Array.prototype.slice.call(arguments);
+//     console.log(args)
+//     let inner = function(){
+//          args.push(...arguments);// arguments默认就为函数的参数，即使我们没有列出形参
+//          return inner;
+//     }
+//     inner.toString=function(){
+//         return args.reduce((prev,cur) => {
+//             return prev + cur;
+//         });
+
+//     }
+//     console.log(inner)
+//     return inner;
+// }
+// ''+add(1)(2)(3)(4)
+// function curry(fn) {
+//     var args = Array.prototype.slice.call(arguments, 1);
+//     return function() {
+//         var innerArgs = Array.prototype.slice.call(arguments);
+//         var finalArgs = args.concat(innerArgs);
+//         return fn.apply(null, finalArgs);
+//     };
+// }
+ 
+// function add(a,b,c) {
+//     return a+b+c;
+// }
+// var curriedAdd = curry(add);
+ 
+// var curriedAdd2 = curry(add, 5, 12,5);
+ 
+// curriedAdd(1)(2)(5)  // 8
+// console.log(curriedAdd2())    // 17
+function add(a, b, c) {
+    console.log(a+b+c)
+    return a + b + c
+}
+
+function curry(fn) {
+    let judge = (...args) => {
+     
+        if (args.length == fn.length) {
+           console.log(fn(...args))
+            return fn(...args)
+        }
+        return (...arg) => judge(...args, ...arg)
+    }
+ 
+    return judge
+}
+add(1, 2, 3)
+let addCurry = curry(add)
+
+addCurry(1)(2)(3)
+</script>
+
+</html>

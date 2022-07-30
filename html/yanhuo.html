@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/* #p{
+  position: fixed;
+  margin-top: 100px;
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
+#c{
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  margin-top:10px;
+  background-color: red;
+} */
+</style>
+<body>
+    <div id="p">
+      <div id="c"></div>
+    </div>
+</body>
+<script>
+  // function copy(obj){
+  //       let newobj = null;   //声明一个变量用来储存拷贝之后的内容
+        
+  //    //判断数据类型是否是复杂类型，如果是则调用自己，再次循环，如果不是，直接赋值即可，
+  //    //由于null不可以循环但类型又是object，所以这个需要对null进行判断
+  //       if(typeof(obj) == 'object' && obj !== null){ 
+        
+	// //声明一个变量用以储存拷贝出来的值,根据参数的具体数据类型声明不同的类型来储存
+  //           newobj = obj instanceof Array? [] : {};   
+            
+	// //循环obj 中的每一项，如果里面还有复杂数据类型，则直接利用递归再次调用copy函数
+  //           for(let i in obj){  
+  //               newobj[i] = copy(obj[i])
+  //           }
+  //       }else{
+  //           newobj = obj
+  //       }    
+        
+  //     return newobj;    //函数必须有返回值，否则结构为undefined
+  //  }
+
+//   function deepclone(obj){
+//     if(typeof(obj)!=='object'|| obj==null){
+//       return obj
+//     }
+//     let result=obj instanceof Array?[]:{};
+//     for(let key in obj){
+//       if(obj.hasOwnProperty(key)){
+//         result[key]=deepclone(obj[key])
+//       }
+//     }
+//     return result;
+//   }
+// let a=deepclone({a:1,b:{c:6}})
+// console.log(a)
+
+// /let obj=[0,1,2,3]
+// let bf=Object.assign({},obj)
+// console.log(bf)//第一次输出为什么也改变了
+// setTimeout(function(){
+//   obj[2]=10;
+// },2000)
+
+// setTimeout(function(){
+//   console.log(bf)
+// },3000)
+
+
+// let objf={a:1,b:2,c:3}
+// let bb=Object.assign({},objf);
+// console.log(bb)
+// objf.b=4;
+// console.log(bb)
+
+// function find(){
+// let arr=[3,2,1,0,4]
+// if(arr.indexOf(0)==-1){
+//   return true;
+// }
+// let res=false;
+//    for(let i=4;i>=0;i--){
+//        if(arr[i-1]==0){//从后向前遍历 遇到0
+//           let j=i-2;//向前推一个
+//           while(j>=0){
+//             if(arr[j]>=(i-j)){//判断 j-2位置的值大于j-2 和 i 之间的距离，就说明能跳过遇到的0，
+//               res=true;
+//             }
+//             j--;//j-2跳不过0，就向前推，j-3继续跳，j-4 ···，如果一个都跳不过0，就说明是false
+//           }
+//      }
+// }
+// console.log(res)
+// return res;
+// }
+// find()
+console.log('a' + (2 > 1) ? 'some' : 'other')
+</script>
+
+</html>

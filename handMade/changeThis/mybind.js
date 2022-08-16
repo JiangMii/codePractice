@@ -1,18 +1,24 @@
-
-Function.prototype.myBind = function(context) {
-    if (typeof this !== 'function') {
-        throw new TypeError('Error')
-    }
-    //返回一个绑定this的函数，这里我们需要保存this
-    const _this = this
-    const args = [...arguments].slice(1)
-        //返回一个函数
-    return function F() {
-        //因为返回一个函数，我们可以new F()需要判断能当做构造函数吗
-        if (this instanceof F) {
-            return new _this(...args, ...arguments)
-        }
-        return _this.apply(context, args.concat(...arguments))
+Function.prototype.MyBind = function(obj, ...args1) {
+    let fn = this
+    obj = obj ? obj : window;
+    return function (...args2) {
+        console.log('atgs2',args2)
+        obj.fn = fn;
+      let args = [...args1, ...args2]
+      let result = obj.fn(...args)
+        delete obj.fn;
+        return result;
     }
 }
 
+// function add(a, b, c) {
+//     console.log(this.age)
+//     console.log(Math.max(...arguments))
+// }
+
+// let obj = {
+//     name: 'mi',
+//     age:90
+// }
+// let b = add.MyBind(obj, 1, 2, 3, 4)
+// b(5,6,7)

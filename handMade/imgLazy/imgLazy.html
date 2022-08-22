@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            margin-top:50px;
+            width: 500px;
+            /* display: block; */
+        }
+    </style>
+</head>
+<body>
+    <img src="./start.png" data-url="./0.png">
+    <img src="./start.png" data-url="./1.png">
+    <img src="./start.png" data-url="./2.png">
+    <img src="./start.png" data-url="./3.png">
+    <img src="./start.png" data-url="./4.png">
+
+    <script>
+        var imgs = document.getElementsByTagName('img')
+        scrollFn()
+        // 监听滚动事件
+        window.onscroll = scrollFn
+        function scrollFn() {
+            var clietH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset ||  document.body.scrollTop;
+            console.log('浏览器窗口大小:',clietH, "滚动条卷去高度",scrollTop);
+            Array.from(imgs).forEach((item) =>{
+                let eleTop = item.offsetTop
+                console.log('当前图片距离document顶部距离',eleTop)
+                let count = scrollTop + clietH - eleTop
+                console.log(count)
+                // 可设置为>100 查看懒加载效果
+                if (count > 0) {
+                    //从data-url中取出真实的图片地址赋值给scr
+                    item.setAttribute('src', item.getAttribute('data-url')) 
+                    console.log('item开始加载')
+                }
+            })
+        }
+    </script>
+</body>
+</html>

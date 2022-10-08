@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="show"></h2>
+    <h2 id="show1"></h2>
+    <input id="input" type="text"></input>
+    <input id="input1" type="text"></input>
+</body>
+<script>
+    let show=document.getElementById('show')
+    let input=document.getElementById('input');
+    let show1=document.getElementById('show1');
+    let input1=document.getElementById('input1');
+    let obj={
+        name:'peak',
+        age:90
+    }
+    let proxy=new Proxy(obj,{
+        set:function(target,prop,value){
+            target[prop]=value
+            //update(value);
+        }
+    })
+    function update(value){
+        console.log(`触发更新姓名`)
+        show.innerHTML=`姓名是${value}`;
+    }
+    function update1(value){
+        console.log(`触发更新年龄`)
+        show1.innerHTML=`年龄是${value}`;
+    }
+    input.addEventListener('input',function(e){
+        proxy.name=e.target.value;
+        update(proxy.name);
+    })
+    input1.addEventListener('input',function(e){
+        proxy.age=e.target.value;
+        update1(proxy.age);
+    })
+    proxy.age=100;
+</script>
+</html>

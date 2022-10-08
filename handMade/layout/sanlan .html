@@ -1,58 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
     <style>
-        /* .wrap>div{
-            height:500px;
-        }
-        .wrap{
-            display: flex;
-        }
-        #left{
-            width: 200px;
-            background-color: aqua;
-        }
-        #right{
-            width:200px;
-            background-color: bisque;
-        }
-        #mid{
-            background-color: red;
-            flex:1;
-        } */
-        /* .wrap>div{
-            height:500px;
-        }
-        #left{
-            width:200px;
-            float: left;
-            background-color: antiquewhite;
-        }
-        #right{
-            width:200px;
-            float:right;
-            background-color: aqua;
-        }
-        #mid{
-            background-color: red;
-            margin:0 200;
-        } */
+       .container{
+    width: 300px;
+    height: 200px;
+    border: 1px solid #efeff4;
+    background: #ffffff;
+    overflow: auto;
+    border: 1px solid #efeff4;
+    scroll-behavior: smooth;
+}
+.content{
+    height: 1000px;
+    color: #25bb9b;
+}
 
-        
+.backtop{
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+}
+.backtop::before{
+    content: 'UP';
+    font-size: 14px;
+    background: #25bb9b;
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+}
     </style>
-    <div class="wrap">
+</head>
 
-        <div id="left"></div>
-        <div id="right"></div>
-        <div id="mid"></div>
-       
-        
-    </div>
+<body>
+    <!-- 填写标签 -->
+    <div class="backtop" onclick="Backtop()">
+    <div class="container">
+    <div class="content">Hello world</div>
+</div>
+    <script type="text/javascript">
+        // 填写JavaScript
+        new Backtop({
+    el: document.querySelector('.container'),
+    distance: 100
+});
+
+
+function Backtop(param) {
+    let back=document.querySelector('.backtop');
+
+document.documentElement.scrollTop=document.body.scrollTop=0;
+back.style.display='none'
+}
+window.onscroll=function(){
+        let scrollTop=document.documentElement.scrollTop|| document.body.scrlooTop||window.scrollY
+   if(scrollTop==0){
+       back.style.display='none'
+   }else{
+       back.style.display='block'
+   }
+        }
+    </script>
 </body>
+
 </html>
+// let timer;
+// back.onclick=function(){
+//     clearInterval(timer);
+//     timer=setInterval(function(){
+//         let top=documentElement.scrollTop||document.body.scrollTop;
+//         top=top-44;
+//         document.documentElement.scrollTop=top;
+//         document.body.scrlooTop=top;
+//         if(top<=0){
+//             clearInterval(timer)
+//         }
+//     },20)
+// }
+(function Backtop(param) {
+    let back=document.querySelector('.backtop');
+    let timer;
+    back.onclick=function(){
+        clearInterval(timer);
+        timer=setInterval(function(){
+            let top=documentElement.scrollTop||document.body.scrollTop;
+            top=top-44;
+            document.documentElement.scrollTop=top;
+            document.body.scrlooTop=top;
+            if(top<=0){
+                clearInterval(timer)
+            }
+        },20)
+    }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         var obj = {
+//     say: function () {
+//         console.log('say',this)
+//       var f1 = () =>  {
+//         console.log("1111", this);
+//       }
+//       f1();
+//     },
+//     pro: {
+//       getPro:() =>  {
+//          console.log(this);
+//       }
+//     }
+// }
+// var age=90;
+// var my={
+//     age:19,
+//     say:()=>{
+//         console.log(this.age)
+//     }
+// }
+// my.say();
+
+window.number = 2;
+var obj = {
+ number: 3,
+ db1: (function(){
+   console.log('外层函数',this);
+   this.number *= 4;
+   return function(){
+     console.log('匿名函数',this);
+     this.number *= 5;
+   }
+ })()
+}
+let dbl=obj.db1;
+dbl();
+obj.db1();
+console.log(window.number,obj.number)
+
+
+
+// var name='mi'
+// let fun= function(){ 
+//       console.log(this.name); 
+//     } 
+// new fun();
+    </script>
+</body>
+</html>

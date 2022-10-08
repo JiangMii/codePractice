@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #p{
+        height:100vh;
+        width:100vw;
+        display: flex;
+        /* flex-direction:row;
+        flex-wrap: nowrap; */
+    }
+    #sidebar{
+        position: fixed;
+        left:0;
+        height:100%;
+        width:150px;
+        background-color: blue;
+        border-right:2px solid red;
+    }
+    #content{
+        height: 100%;
+        flex:1;
+        background-color: antiquewhite;
+    }
+    #btn{
+        position: fixed;
+        left: 20PX;
+        bottom: 20px;
+    }
+</style>
+<body>
+    <div id="p">
+        <div id="sidebar">侧边栏</div>
+        <button id="btn">收起</button>
+        <div id="content">content</div>
+    </div>
+    <script>
+        let isClick=true;
+        document.getElementById('btn').addEventListener('click',function(){
+            let side=document.getElementById('sidebar');
+
+                if(isClick===true){
+                    side.style.width=50+'px';
+                    isClick=false;
+                    btn.innerText='展开'
+                }else{
+                    side.style.width=150+'px';
+                    isClick=true;
+                    btn.innerText='收起'
+                }
+               
+            
+
+           
+        })
+    </script>
+</body>
+</html>

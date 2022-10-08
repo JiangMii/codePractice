@@ -13,7 +13,7 @@
 
         img {
             margin-top:50px;
-            width: 500px;
+            width: 800px;
             /* display: block; */
         }
     </style>
@@ -26,27 +26,28 @@
     <img src="./start.png" data-url="./4.png">
 
     <script>
-        var imgs = document.getElementsByTagName('img')
-        scrollFn()
-        // 监听滚动事件
-        window.onscroll = scrollFn
+        var imgs =[ ...document.getElementsByTagName('img')]
+        scrollFn();
+        window.onscroll=scrollFn;
         function scrollFn() {
             var clietH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
             var scrollTop = document.documentElement.scrollTop || window.pageYOffset ||  document.body.scrollTop;
-            console.log('浏览器窗口大小:',clietH, "滚动条卷去高度",scrollTop);
-            Array.from(imgs).forEach((item) =>{
+            var count=0,deleteArr=[];
+            imgs.forEach((item,index) =>{
                 let eleTop = item.offsetTop
-                console.log('当前图片距离document顶部距离',eleTop)
-                let count = scrollTop + clietH - eleTop
-                console.log(count)
-                // 可设置为>100 查看懒加载效果
-                if (count > 0) {
-                    //从data-url中取出真实的图片地址赋值给scr
+                let isShow = scrollTop + clietH - eleTop
+                if (isShow > 0) {
                     item.setAttribute('src', item.getAttribute('data-url')) 
-                    console.log('item开始加载')
+                    console.log(`item${index}加载完成`)
+                    deleteArr.push(item);
+                }
+                if(deleteArr.length===imgs.length){
+                    document.removeEventListener('scroll', scrollFn)
+                    console.log('全部加载done')
                 }
             })
-        }
+        };
+
     </script>
 </body>
 </html>

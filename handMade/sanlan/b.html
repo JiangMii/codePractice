@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="out">
+        <div id="left"></div>
+        <div id="mid"></div>
+        <div id="right"></div>
+    </div>
+    <style>
+        #out{
+            position: relative;
+        }
+        #left{
+            position: absolute;
+            width:100px;
+            background-color: aqua;
+            height:500px;
+        }
+        #right{
+            position:absolute;
+            right:0px;
+            top:0px;
+            width:200px;
+            background-color: black;
+            height:500px;
+        }
+        #mid{
+            margin-left: 100px;
+            margin-right:100px;
+            height:500px;
+            background-color: brown;
+        }
+    </style> -->
+    <!-- <div id="out">
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="mid"></div>
+    </div>
+    <style>
+        #left{
+            float: left;
+            width:200px;
+            height:500px;
+            background-color: antiquewhite;
+        }
+        #right{
+            float: right;
+            width:200px;
+            height:500px;
+            background-color: red;
+        }
+        #mid{
+            margin-left:200px;
+            margin-right:200px;
+            height:500px;
+            background-color: black;
+        }
+    </style> -->
+
+
+    <script>
+// let a=function(){
+//     (function(a,b){
+//         console.log(this)
+//     })()
+// }
+
+
+// // 形参在function旁边的()  与普通函数一样
+// (function (x,y) {
+// 	return x + y
+// })(1,2)
+
+var name='jarry';
+var obj={
+    name:"张三",
+    foo:(function(){
+        if(typeof this.name=='undefined'){
+            var name='jack';
+            console.log("Goodbye"+this.name);
+        }else{
+            console.log("Good"+this.name);
+        }
+    })()
+}
+console.log(obj.foo)
+obj.foo();
+
+// var name='jarry';
+// var obj={
+//     name:"张三",
+//     foo:function(){
+//     (function(){
+//         if(typeof this.name=='undefined'){
+//             var name='jack';
+//             console.log("Goodbye"+this.name);
+//         }else{
+//             console.log("Good"+this.name);
+//         }
+//     })()
+// }}
+// obj.foo();
+    </script> 
+
+</body>
+</html>

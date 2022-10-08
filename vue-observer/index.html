@@ -7,7 +7,57 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+         @keyframes rotateImage {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
+ .aa{
+  animation: rotateImage 10s linear infinite;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid #333;
+}
+    </style>
     <p>响应式 demo</p>
-    <script src="./observe.js"></script>
+    <script src="./a.js"></script>
+    <div>
+        <img id="aa"  src="./a.png"></img>
+    </div>
 </body>
 </html>
+<!-- let arr=[];
+while (line = readline()) {
+   // var lines = line.split(' ');
+    arr.push(line)
+}
+function Node(value){
+    this.value=value;
+    this.leftChild=null;
+    this.rightChild=null;
+}
+while(arr.length>0){
+    let now=arr.splice(0,2);
+    let qian=(now[0]).split(''),zhong=(now[1]).split('');
+    function fn(qian,zhong){
+    if(qian==null||zhong==null||qian.length==0||zhong.length==0||qian.length!=zhong.length)return;
+    var root=new Node(qian[0])
+    var index=zhong.indexOf(root.value);
+    var qianl=qian.slice(1,index+1);
+    var qianr=qian.slice(index+1,qian.length);
+    var zhongl=zhong.slice(0,index);
+    var zhongr=zhong.slice(index+1,zhong.length);
+    root.leftChild=fn(qianl,zhongl);
+    rootRight=fn(qianr,zhongr);
+    return root;
+    }
+    var root=fn(qian,zhong);
+    console.log(root.leftChild)
+    console.log(root.rightChild)
+    
+} -->

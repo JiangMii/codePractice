@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #div{
+            text-overflow:ellipsis;
+            width:50px;
+            overflow: hidden;
+            white-space:nowrap;
+        }
+        @keyframes rotate {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        #img{
+            animation: rotate 2s linear infinite;
+        }
+    </style>
+    <div id="div">jasuidhviuahiahrfnnn口对手覅从你的能凑电池说的话v应该是吧v不是底河vi大家送i和vu是vi速度</div>
+    <div ><img id="img" src='./屏幕截图 2022-09-29 100543.png'/></div>
+</body>
+<script>
+   
+
+function Test(name) {
+    this.name = name;
+}
+Test.prototype.fn = function(){
+    console.log(this.name)
+}
+let a = new Test('mi')
+a.fn()
+</script>
+</html>

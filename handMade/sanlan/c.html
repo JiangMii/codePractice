@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     var name='mimi'
+    //     var obj = { 
+    //     name : 'cuggz', 
+    //       fun : function(){ 
+    //          console.log(this); 
+    //       } 
+    //    } 
+    //    obj.fun()     // cuggz
+    //   new obj.fun() ;// undefined
+    // let a=function(a,b){
+    //     console.log(this)
+    //     console.log(a+b);
+    // }
+    // new a(1,4)
+    // let b=new a(1,4)
+
+window.number = 2;
+var obj = {
+number: 3,
+db1: (function(){
+  console.log(this);
+  this.number *= 4;
+  return function(){
+   console.log(this);
+  this.number *= 5;
+  }
+})()
+}
+var db1 = obj.db1;//在赋值给db1的时候，window.number已经等于8了，因为声明的时候就自执行了
+// db1();//加了括号，是执行return回来的那个函数，因为赋值给db1的是obj.db1的返回值，就是闭包函数；window.number再乘5 变40；
+// obj.db1();//obj.db1加了括号 相当于只执行return回来的那个函数，这次*4 是没有执行的，这个时候闭包的this指向obj,所以obj.number*5=15; 
+obj.db1();
+console.log(obj.number);     // 15
+console.log(window.number);  // 40
+    </script>
+
+
+
+
+
+
+
+
+
+    <!-- <div id="out">
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="mid"></div>
+    </div>
+    <style>
+        #out{
+            /* position: relative; */
+        }
+        #left{
+            float: left;
+            width:100px;
+            height:500px;
+            background-color: aqua;
+        }
+        #right{
+            float: right;
+            width:200px;
+            height:500px;
+            background-color: bisque;
+        }
+        #mid{
+            margin-left: 100px;
+            margin-right:200px;
+            height:500px;
+            background-color: red;
+        }
+    </style> -->
+</body>
+</html>

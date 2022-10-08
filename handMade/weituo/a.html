@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let j=0;
+       document.querySelector('#app').innerHTML='<ul>'+Array(1000).fill(0).map(()=>{
+        return `<li><a href=https://leetcode-cn.com/>链接</a>${j++}</li>`
+       }).join('')+'</ul>'
+       let lis=document.querySelectorAll('li');
+       let l=lis.length
+       console.log(l)
+       for(let i=0;i<=Math.floor(l/2);i++){
+        let now=lis[i].innerHTML
+        let last=lis[l-i-1].innerHTML;
+        lis[l-i-1].innerHTML=now;
+        lis[i].innerHTML=last;
+       }
+       let as=document.querySelectorAll('a');
+       let arr=Array.from(as).map(item=>{
+        item.addEventListener('click',(e)=>{
+            console.log('阻止a跳转')
+            e.preventDefault();
+        })
+       })
+       let ul=document.querySelector('ul')
+       ul.addEventListener('click',(e)=>{
+        let target=e.target;
+        for(let i=0;i<1000;i++){
+            if(lis[i]==target){
+                // let a=Array.from(lis[i].children)[0]
+                // console.log(a)
+                // a.addEventListener('click',(e)=>{
+                //     console.log('biaoqiana')
+                //     e.preventDefault();
+                // },true)
+                alert(`当前点击${i+1}个`)
+            }
+        }
+       })
+
+    </script>
+</body>
+</html>

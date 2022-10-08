@@ -8,6 +8,9 @@ function merge(target) {
         if (value !== undefined) {
           target[prop] = value;
         }
+        if (target[prop] && target[prop] instanceof Array) {
+         target[prop]= Array.from(target[prop]).push(source[prop])
+        }
       }
     }
   }
@@ -15,5 +18,5 @@ function merge(target) {
   return target;
 };
 
-console.log(merge({a:1},{b:2},{c:10}))
+console.log(merge({a:1},{b:2},{c:10},{a:0}))
 

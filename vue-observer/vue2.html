@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <input type="text" id="in" placeholder="请输入姓名..."/>输入的姓名为：<span id="out"></span>  <br>
+ <input type="text" id="in1" placeholder="请输入年龄..."/> 输入的年龄为：<span id="out1"></span>
+</body>
+
+<script>
+    let int = document.getElementById('in');
+    let int1 = document.getElementById('in1');
+    let out=document.getElementById('out');
+    let out1=document.getElementById('out1');
+    const data={name:'peak',age:10}
+    Object.keys(data).forEach((key)=>{
+        Object.defineProperty(data,key,{
+            enumerable:true,
+            configurable:true,
+            get:()=>{
+                console.log(`get`)
+                return data.key;
+            },
+            set:(newval)=>{
+                if(newval===data.key){
+                    return;
+                }
+                data.key=newval;
+                console.log(`触发视图更新${newval}`);
+            }
+        })
+    })
+    int.addEventListener('input',function(e){
+        data.name=e.target.value;
+        out.innerHTML=data.name
+    })
+    int1.addEventListener('input',function(e){
+        data.age=e.target.value;
+        out1.innerHTML=data.age;
+    })
+</script>
+</html>

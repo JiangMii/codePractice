@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+         /* #p{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #app{
+            width:0;
+            height:0;
+            /* border-left:50px solid red;
+            border-top:50px solid transparent;
+            border-bottom:50px solid transparent; */
+            /* top:0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto; */
+            .a:hover + .b{
+                background-color: red;
+            }
+            .a{
+                width:100px;
+                height:100px;
+                border:1px solid black;
+            }
+            .b{
+                width:100px;
+                height:100px;
+                border:1px solid black;
+            }
+    </style>
+   <div class="a">
+   </div>
+   <div class="b"></div>
+<script>
+//     async function fn() {
+//     new Promise(function(resolve,reject){
+//         setTimeout(x => reject('11111'), 100);
+//         console.log('11')
+//         return '111';
+//     }).then(e=>{
+//         console.log(e)
+//     })
+
+// }
+// async function test(){
+//     const n = await fn();
+//     console.log('end')
+// }
+// test()
+// async function f() {
+//     try {
+//         let a = await Promise.reject('err')
+//         console.log(a)
+//     } catch (e) {
+//         console.log(e)
+//     }
+// }
+// f()
+
+// var name = 'Jay'
+// function Person(name) {
+//     this.name = name;
+//     console.log(this.name)
+// }
+// var b =  new Person('T')
+// console.log(name);
+// console.log(b)
+// class A{}
+// class B extends A{}
+// const a=new A()
+// const b=new B()
+// a.__proto__=== 
+// b.__proto__===
+// B.__proto__===
+// B.prototype.__proto__===
+// b.__proto__.__proto__===
+
+let p = new Promise((res, rej) => {
+  console.log(1)
+  res(1)
+}).then(() => {
+  throw error('2');
+}).catch(() => {
+  console.log(3)
+}).then(() => {
+  console.log(4)
+})
+
+</script>
+</body>
+</html>
